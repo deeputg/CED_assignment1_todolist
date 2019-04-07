@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ToDo list</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  .todo{
+    width: 310px;
+    height: 400px;
+    background-color: aquamarine;
+    padding: 20px
+  }
+  .insert-form{
+    background-color: blueviolet;
+    padding: 20px;
+    width: 310px;
+  }
+</style>
+</head>
+<body>
+  <div class="todo">
+  <table>
+
+    <% for (let i=0;i<todoArr.length;i++){%>
+<tr>
+  <td><%=i+1%></td>
+  <td>
+  <form action="/todo/updateStatus" method="POST">
+    <input type="hidden" value="<%=todoArr[i].taskId%>" name="taskId">
+  <input type="checkbox" onclick="changeStatus(todoArr[i].taskId)" <%=todoArr[i]._status?"checked":""%> >
+</td><td>
+  <%=todoArr[i]._title%> 
+</td><td>
+  <button type="submit" >Update</button>
+  </form>
+  </td>
+      <% }%>
+</table>
+</div>
+
+<div class="insert-form">
+  <form action="/todo/addTask" method="POST">
+    <input type="text" name="title" placeholder="Add task">
+    <button type="submit">Add</button>
+  </form>
+</div>
+
+  <script type="">
+    function changeStatus(taskId){
+
+    }
+  </script>
+</body>
+</html>
