@@ -29,11 +29,11 @@
   <td>
   <form action="/todo/updateStatus" method="POST">
     <input type="hidden" value="<%=todoArr[i].taskId%>" name="taskId">
-  <input type="checkbox" onclick="changeStatus(todoArr[i].taskId)" <%=todoArr[i]._status?"checked":""%> >
+  <input type="checkbox" disabled <%=todoArr[i]._status?"checked":""%> >
 </td><td>
   <%=todoArr[i]._title%> 
 </td><td>
-  <button type="submit" >Update</button>
+  <button type="submit" ><%=todoArr[i]._status?"Undone":"Done"%></button>
   </form>
   </td>
       <% }%>
